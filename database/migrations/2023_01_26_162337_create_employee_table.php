@@ -23,8 +23,10 @@ class CreateEmployeeTable extends Migration
             $table->string('m_kerja');
             $table->string('s_kerja');
             $table->bigInteger('jabatan_id')->unsigned();
+            $table->bigInteger('team_id')->unsigned();
             $table->timestamps();
             $table->foreign('jabatan_id')->references('id')->on('jabatan')->onDelete('cascade');
+            $table->foreign('team_id')->references('id')->on('team')->onDelete('cascade');
         });
     }
 

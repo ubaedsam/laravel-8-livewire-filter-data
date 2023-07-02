@@ -13,8 +13,9 @@
           </div>
           <div class="flex justify-center">
             <div class="block p-6 rounded-lg shadow-lg bg-white max-w-sm">
-              <h6 class="text-blue-600/100 text-xl leading-tight font-medium text-center">{{ $employee->nama }}</h6>
+              <h2 class="text-blue-600/100 text-xl leading-tight font-medium text-center">{{ $employee->nama }}</h2>
               <h4 class="text-blue-600/100 text-xl leading-tight font-medium mb-4 text-center">{{ $employee->jabatan->jabatan }}</h4>
+              <h6 class="text-blue-600/100 text-xl leading-tight font-medium mb-4 text-center">{{ $employee->team->nama }}</h6>
               <p class="text-gray-700 text-base mb-4">
                 Usia : {{ $employee->usia }}
               </p>

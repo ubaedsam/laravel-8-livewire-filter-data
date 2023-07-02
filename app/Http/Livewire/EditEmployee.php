@@ -4,6 +4,7 @@ namespace App\Http\Livewire;
 
 use App\Models\Employees;
 use App\Models\Jabatan;
+use App\Models\Team;
 use Livewire\Component;
 
 class EditEmployee extends Component
@@ -18,6 +19,7 @@ class EditEmployee extends Component
     public $m_kerja;
     public $s_kerja;
     public $jabatan_id;
+    public $team_id;
     public $employee_id;
 
     public function mount($employee_id)
@@ -31,6 +33,7 @@ class EditEmployee extends Component
         $this->m_kerja = $employee->m_kerja;
         $this->s_kerja = $employee->s_kerja;
         $this->jabatan_id = $employee->jabatan_id;
+        $this->team_id = $employee->team_id;
         $this->employee_id = $employee->id;
     }
 
@@ -44,7 +47,8 @@ class EditEmployee extends Component
             'gaji' => 'required|numeric',
             'm_kerja' => 'required',
             's_kerja' => 'required',
-            'jabatan_id' => 'required'
+            'jabatan_id' => 'required',
+            'team_id' => 'required',
         ],[
             'nama.required' => 'Data nama wajib di isi',
             'usia.required' => 'Data usia wajib di isi',
@@ -54,6 +58,7 @@ class EditEmployee extends Component
             'm_kerja.required' => 'Data mulai kontrak kerja wajib di isi',
             's_kerja.required' => 'Data selesai kontrak kerja wajib di isi',
             'jabatan_id.required' => 'Data jabatan wajib di isi',
+            'team_id.required' => 'Data team wajib di isi',
             'gaji.numeric' => 'Data gaji hanya boleh di isi oleh angka saja'
         ]);
     }
@@ -69,7 +74,8 @@ class EditEmployee extends Component
             'gaji' => 'required|numeric',
             'm_kerja' => 'required',
             's_kerja' => 'required',
-            'jabatan_id' => 'required'
+            'jabatan_id' => 'required',
+            'team_id' => 'required',
         ],[
             'nama.required' => 'Data nama wajib di isi',
             'usia.required' => 'Data usia wajib di isi',
@@ -79,6 +85,7 @@ class EditEmployee extends Component
             'm_kerja.required' => 'Data mulai kontrak kerja wajib di isi',
             's_kerja.required' => 'Data selesai kontrak kerja wajib di isi',
             'jabatan_id.required' => 'Data jabatan wajib di isi',
+            'team_id.required' => 'Data team wajib di isi',
             'gaji.numeric' => 'Data gaji hanya boleh di isi oleh angka saja'
         ]);
 
@@ -91,6 +98,7 @@ class EditEmployee extends Component
         $employee->m_kerja = $this->m_kerja;
         $employee->s_kerja = $this->s_kerja;
         $employee->jabatan_id = $this->jabatan_id;
+        $employee->team_id = $this->team_id;
         $employee->save();
 
         return redirect('/all-employee')->with('toast_success','Data employee karyawan berhasil diubah!');
@@ -99,6 +107,7 @@ class EditEmployee extends Component
     public function render()
     {
         $jabatans = Jabatan::all();
-        return view('livewire.edit-employee',['jabatans'=>$jabatans])->layout('layouts.app');
+        $teams = Team::all();
+        return view('livewire.edit-employee',['jabatans'=>$jabatans, 'teams'=>$teams])->layout('layouts.app');
     }
 }

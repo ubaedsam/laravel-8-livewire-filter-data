@@ -16,7 +16,7 @@
 
     @livewireScripts
 
-    <script>
+    {{--  <script>
         $(document).ready(function(){
           $("#jabatan").on('change',function(){
             var jabatan = $(this).val();
@@ -48,7 +48,7 @@
             });
           });
         });
-      </script>
+      </script>  --}}
 
     @include('sweetalert::alert')
 </body>

@@ -17,12 +17,30 @@
       </select>
       <br>
       <br>
+      <select wire:model="team" class="form-control">
+        <option value="">Pilih Team</option>
+        @foreach ($teams as $team)
+            <option value="{{ $team->id }}">{{ $team->nama }}</option>
+        @endforeach
+      </select>
+      <br>
+      <br>
       <div class="">
         <label for="">Per Page</label>
         <select class="form-control" wire:model="perPage">
           <option value="5">5</option>
           <option value="15">15</option>
           <option value="25">25</option>
+          <option value="50">50</option>
+        </select>
+      </div>
+      <br>
+      <br>
+      <div class="">
+        <label for="">Order By</label>
+        <select class="form-control" wire:model="by">
+          <option value="asc">Ascending</option>
+          <option value="desc">Descending</option>
         </select>
       </div>
       {{--  <br>
@@ -46,6 +64,7 @@
                 <th class="border border-blue-600 p-5">Usia</th>
                 <th class="border border-blue-600 p-5">Tanggal Lahir</th>
                 <th class="border border-blue-600 p-5">Jabatan</th>
+                <th class="border border-blue-600 p-5">Team</th>
                 <th class="border border-blue-600 p-5">Action</th>
               </tr>
             </thead>
@@ -55,9 +74,10 @@
                 <tr>
                   <td class="border border-blue-600 text-center p-2">{{ $employee->id }}</td>
                   <td class="border border-blue-600 text-center p-2">{{ $employee->nama }}</td>
-                  <td class="border border-blue-600 text-center p-2">{{ $employee->usia }}</td>
+                  <td class="border border-blue-600 text-center p-2">{{ $employee->usia }} Tahun</td>
                   <td class="border border-blue-600 text-center p-2">{{ $employee->tanggal_lahir }}</td>
                   <td class="border border-blue-600 text-center p-2">{{ $employee->jabatan->jabatan }}</td>
+                  <td class="border border-blue-600 text-center p-2">{{ $employee->team->nama }}</td>
                   <td class="border border-blue-600 text-center p-2">
                     <a href="{{ route('all-employee.edit',['employee_id'=>$employee->id]) }}" class="inline-block px-6 py-2.5 bg-yellow-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-yellow-700 hover:shadow-lg focus:bg-yellow-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-yellow-800 active:shadow-lg transition duration-150 ease-in-out">Ubah</a>
                     <a href="{{route('all-employee.detail',['employee_id'=>$employee->id])}}" class="inline-block px-6 py-2.5 bg-blue-500 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-600 hover:shadow-lg focus:bg-blue-600 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-700 active:shadow-lg transition duration-150 ease-in-out">Detail</a>
@@ -73,9 +93,12 @@
             </tbody>
         </table>
     </div>
+    <div class="mb-10">
+    {{ $employees->links() }}
+    </div>
   </div>
 
-  <script>
+  {{--  <script>
     $(document).ready(function(){
       $("#jabatan").on('change',function(){
         var jabatan = $(this).val();
@@ -107,4 +130,4 @@
         });
       });
     });
-  </script>
+  </script>  --}}

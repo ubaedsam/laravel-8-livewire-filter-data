@@ -16,6 +16,11 @@ class Employees extends Model
         return $this->belongsTo(Jabatan::class);
     }
 
+    public function team()
+    {
+        return $this->belongsTo(Team::class);
+    }
+
     public function scopeSearch($query, $term){
         $term = "%$term%";
         $query->where(function($query) use ($term){

@@ -5,6 +5,7 @@ namespace App\Http\Livewire;
 use App\Models\Jabatan;
 use Livewire\Component;
 use App\Models\Employees;
+use App\Models\Team;
 use Illuminate\Http\Request;
 
 class Employee extends Component
@@ -18,6 +19,8 @@ class Employee extends Component
     // public $jabatan;
 
     public $jabatan = null;
+    public $team = null;
+    public $by = 'asc';
     public $perPage = 5;
     public $search;
 
@@ -70,13 +73,19 @@ class Employee extends Component
     public function render(Request $request)
     {
         $jabatans = Jabatan::all();
+        $teams = Team::all();
 
         return view('livewire.employee',[
             'jabatans'=>$jabatans,
+            'teams'=>$teams,
             'employees'=>Employees::when($this->jabatan, function($query){
                 $query->where('jabatan_id', $this->jabatan);
             })
+            ->when($this->team, function($query){
+                $query->where('team_id', $this->team);
+            })
             ->search(trim($this->search))
+            ->orderBy('id', $this->by)
             ->paginate($this->perPage)
             ]
         )->layout('layouts.app');
