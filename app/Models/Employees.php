@@ -24,8 +24,7 @@ class Employees extends Model
     public function scopeSearch($query, $term){
         $term = "%$term%";
         $query->where(function($query) use ($term){
-            $query->where('usia','like', $term)
-            ->orWhere('nama','like',$term);
+            $query->where('nama','like', $term);
         });
 
     }

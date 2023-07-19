@@ -4,6 +4,7 @@ use App\Http\Livewire\Employee;
 use App\Http\Livewire\AddEmployee;
 use App\Http\Livewire\DetailEmployee;
 use App\Http\Livewire\EditEmployee;
+use App\Http\Livewire\ProductFilter;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,6 +21,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/all-product', ProductFilter::class)->name('product');
 
 Route::get('/all-employee', Employee::class)->name('employee');
 

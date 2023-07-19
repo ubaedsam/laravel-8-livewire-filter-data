@@ -23,6 +23,8 @@ class Employee extends Component
     public $by = 'asc';
     public $perPage = 5;
     public $search;
+    public $min_usia = 0;
+    public $max_usia = 20;
 
     public function hapusEmployee($id)
     {
@@ -30,45 +32,6 @@ class Employee extends Component
         $employee->delete();
         return redirect('/all-employee')->with('toast_success','Data employee karyawan berhasil di hapus!');
     }
-
-    // public function mount()
-    // {
-    //     $this->employees = Employees::all();
-    // }
-
-    // public function updated()
-    // {
-    //     $employee = Employees::query();
-
-    //     $searchTerm = '%'.$this->searchTerm . '%'; // untuk fitur search
-
-    //     $jabatan = '%'.$this->jabatan . '%';
-
-    //     if(!empty($this->searchTerm))
-    //     {
-    //         $employee = Employees::where('nama','LIKE',$searchTerm) // mencari data dari firstname
-    //         ->orWhere('usia','LIKE',$searchTerm) // mencari data dari lastname
-    //         ->orWhere('tanggal_lahir','LIKE',$searchTerm); // mencari data dari email
-    //     }
-
-    //     if(!empty($this->jabatan))
-    //     {
-    //         $employee = Employees::where('jabatan_id','LIKE',$jabatan);
-    //     }
-
-    //     if(!empty($this->from) && !empty($this->to))
-    //     {
-    //         $employee = $employee->whereBetween('created_at',[$this->from.'00:00:00', $this->to.'23:59:59']);
-    //     }else if(!empty($this->from))
-    //     {
-    //         $employee = $employee->whereDate('created_at','>=',$this->from);
-    //     }else if(!empty($this->to))
-    //     {
-    //         $employee = $employee->whereDate('created_at','<=',$this->to);
-    //     }
-
-    //     $this->employees = $employee->get();
-    // }
 
     public function render(Request $request)
     {
@@ -84,6 +47,7 @@ class Employee extends Component
             ->when($this->team, function($query){
                 $query->where('team_id', $this->team);
             })
+            ->whereBetween('usia',[$this->min_usia,$this->max_usia])
             ->search(trim($this->search))
             ->orderBy('id', $this->by)
             ->paginate($this->perPage)

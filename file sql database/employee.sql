@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 02 Jul 2023 pada 06.28
+-- Waktu pembuatan: 19 Jul 2023 pada 10.10
 -- Versi server: 10.1.38-MariaDB
 -- Versi PHP: 7.3.2
 
@@ -141,7 +141,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (4, '2019_12_14_000001_create_personal_access_tokens_table', 1),
 (5, '2023_01_25_021355_create_team_table', 1),
 (6, '2023_01_25_172338_create_jabatan_table', 1),
-(7, '2023_01_26_162337_create_employee_table', 1);
+(7, '2023_01_26_162337_create_employee_table', 1),
+(8, '2023_07_05_164548_create_products_table', 2);
 
 -- --------------------------------------------------------
 
@@ -172,6 +173,67 @@ CREATE TABLE `personal_access_tokens` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `products`
+--
+
+CREATE TABLE `products` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `price` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `category` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data untuk tabel `products`
+--
+
+INSERT INTO `products` (`id`, `name`, `price`, `category`, `created_at`, `updated_at`) VALUES
+(1, 'Ryan Upton', '47213', 'consectetur', '2023-07-03 10:23:14', '2023-07-05 10:23:14'),
+(2, 'Ruthie Brown', '74016-8615', 'nostrum', '2023-07-03 10:23:16', '2023-07-05 10:23:16'),
+(3, 'Ms. Gwen Gerlach', '47142', 'sint', '2023-07-04 10:23:16', '2023-07-05 10:23:16'),
+(4, 'Nicholaus Hauck', '49932-6685', 'quisquam', '2023-07-05 10:23:16', '2023-07-05 10:23:16'),
+(5, 'Michaela Dicki II', '70309', 'praesentium', '2023-07-05 10:23:17', '2023-07-05 10:23:17'),
+(6, 'Sebastian Yundt I', '58350-9978', 'rerum', '2023-07-05 10:23:17', '2023-07-05 10:23:17'),
+(7, 'Santino Kohler', '95004-4764', 'sunt', '2023-07-05 10:23:17', '2023-07-05 10:23:17'),
+(8, 'Audie Wyman', '84180-8343', 'magnam', '2023-07-05 10:23:17', '2023-07-05 10:23:17'),
+(9, 'Miss Letha Harris IV', '23034-0457', 'error', '2023-07-05 10:23:18', '2023-07-05 10:23:18'),
+(10, 'Dr. Tillman Rath III', '42989', 'corporis', '2023-07-05 10:23:18', '2023-07-05 10:23:18'),
+(11, 'Bradford Harber', '57821-2700', 'repudiandae', '2023-07-05 10:23:18', '2023-07-05 10:23:18'),
+(12, 'Ms. Belle Towne', '43141-9810', 'sit', '2023-07-05 10:23:18', '2023-07-05 10:23:18'),
+(13, 'Brandi Rogahn', '36490-9414', 'qui', '2023-07-05 10:23:19', '2023-07-05 10:23:19'),
+(14, 'Ian Kuphal', '84475-2062', 'hic', '2023-07-05 10:23:19', '2023-07-05 10:23:19'),
+(15, 'Dr. Gustave Jakubowski Jr.', '26702', 'sunt', '2023-07-05 10:23:19', '2023-07-05 10:23:19'),
+(16, 'Prof. Brendan Moen MD', '01296-3635', 'nostrum', '2023-07-05 10:23:19', '2023-07-05 10:23:19'),
+(17, 'Keely Hermiston', '40042', 'quod', '2023-07-05 10:23:19', '2023-07-05 10:23:19'),
+(18, 'Prof. Quentin Trantow Sr.', '48272', 'ad', '2023-07-05 10:23:19', '2023-07-05 10:23:19'),
+(19, 'Mr. Vince Mayert', '25816', 'voluptatibus', '2023-07-05 10:23:20', '2023-07-05 10:23:20'),
+(20, 'Cecelia Rodriguez PhD', '72448', 'quis', '2023-07-05 10:23:20', '2023-07-05 10:23:20'),
+(21, 'Miss Kathlyn Schmeler', '58107', 'nam', '2023-07-05 11:04:20', '2023-07-05 11:04:20'),
+(22, 'Liza Nitzsche', '21394', 'laboriosam', '2023-07-05 11:04:21', '2023-07-05 11:04:21'),
+(23, 'Prof. Juvenal Jakubowski', '47067-3100', 'rerum', '2023-07-05 11:04:21', '2023-07-05 11:04:21'),
+(24, 'Dr. Carlee Kirlin II', '18416-6299', 'velit', '2023-07-05 11:04:21', '2023-07-05 11:04:21'),
+(25, 'Fabiola Hauck', '66640-6013', 'et', '2023-07-05 11:04:22', '2023-07-05 11:04:22'),
+(26, 'Marc Padberg', '08142', 'quo', '2023-07-05 11:04:22', '2023-07-05 11:04:22'),
+(27, 'Dr. Marian Bode PhD', '02006', 'totam', '2023-07-05 11:04:22', '2023-07-05 11:04:22'),
+(28, 'Bettie Pacocha', '19233-8298', 'aut', '2023-07-05 11:04:22', '2023-07-05 11:04:22'),
+(29, 'Mrs. Alyce Luettgen', '73721', 'harum', '2023-07-05 11:04:22', '2023-07-05 11:04:22'),
+(30, 'Beatrice D\'Amore', '91248-4523', 'perferendis', '2023-07-05 11:04:22', '2023-07-05 11:04:22'),
+(31, 'Mr. Zion Labadie Sr.', '12059', 'totam', '2023-07-05 11:04:23', '2023-07-05 11:04:23'),
+(32, 'Queen Kerluke', '19895-1210', 'minima', '2023-07-05 11:04:23', '2023-07-05 11:04:23'),
+(33, 'Dr. Madisyn Shanahan II', '41584', 'aperiam', '2023-07-05 11:04:23', '2023-07-05 11:04:23'),
+(34, 'Noah Roob IV', '79328-9955', 'nostrum', '2023-07-05 11:04:23', '2023-07-05 11:04:23'),
+(35, 'Ron Beer', '03912-4005', 'qui', '2023-07-05 11:04:23', '2023-07-05 11:04:23'),
+(36, 'Amber Koelpin', '93956-6717', 'omnis', '2023-07-05 11:04:23', '2023-07-05 11:04:23'),
+(37, 'Prof. Devante Leffler', '55807-3215', 'voluptatum', '2023-07-05 11:04:23', '2023-07-05 11:04:23'),
+(38, 'Willow Nicolas', '04909-3486', 'ducimus', '2023-07-05 11:04:24', '2023-07-05 11:04:24'),
+(39, 'Dr. Ewald Heller', '26643-0722', 'itaque', '2023-07-05 11:04:24', '2023-07-05 11:04:24'),
+(40, 'Gayle Douglas', '56946', 'rerum', '2023-07-05 11:04:24', '2023-07-05 11:04:24');
 
 -- --------------------------------------------------------
 
@@ -259,6 +321,12 @@ ALTER TABLE `personal_access_tokens`
   ADD KEY `personal_access_tokens_tokenable_type_tokenable_id_index` (`tokenable_type`,`tokenable_id`);
 
 --
+-- Indeks untuk tabel `products`
+--
+ALTER TABLE `products`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indeks untuk tabel `team`
 --
 ALTER TABLE `team`
@@ -297,13 +365,19 @@ ALTER TABLE `jabatan`
 -- AUTO_INCREMENT untuk tabel `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT untuk tabel `personal_access_tokens`
 --
 ALTER TABLE `personal_access_tokens`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT untuk tabel `products`
+--
+ALTER TABLE `products`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 
 --
 -- AUTO_INCREMENT untuk tabel `team`

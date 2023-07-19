@@ -7,8 +7,6 @@
     </h1>
     <form class="text-center pt-5" wire:submit.prevent="searching">
       <input wire:model="search" type="search" placeholder="Nama Employee">
-      {{--  <label>From </label><input type="date" wire:model="from">
-      <label>To </label><input type="date" wire:model="to">  --}}
       <select wire:model="jabatan" class="form-control">
         <option value="">Pilih Jabatan</option>
         @foreach ($jabatans as $jabatan)
@@ -43,14 +41,17 @@
           <option value="desc">Descending</option>
         </select>
       </div>
-      {{--  <br>
-      <div class="">
-        <label for="">Sort By</label>
-        <select class="form-control" wire:model="sortBy">
-          <option value="asc">ASC</option>
-          <option value="desc">DESC</option>
-        </select>
-      </div>  --}}
+      <br>
+      <br>
+      <div class="harga">
+        <div class="widget mercado-widget filter-widget price-filter">
+          <h2 class="widget-title">Harga <span class="text-info">Rp. {{ $min_usia }} - Rp. {{ $max_usia }}</span></h2>
+          <div class="widget-content" style="padding: 10px 5px 40px 5px;">
+            <div id="slider" wire:ignore></div>
+          </div>
+        </div><!-- Price-->
+      </div>
+
 
       {{--  <input type="submit" value="Search">  --}}
 
@@ -97,6 +98,27 @@
     {{ $employees->links() }}
     </div>
   </div>
+
+  @push('scripts')
+	<script>
+		// menselect data dengan id slider
+		var slider = document.getElementById('slider');
+		noUiSlider.create(slider,{
+			start : [0,20],
+			connect:true,
+			range : {
+				'min' : 0,
+				'max' : 20
+			}
+		});
+
+		// memproses data filter harga
+		slider.noUiSlider.on('update',function(value){
+			@this.set('min_usia',value[0]); // harga paling rendah
+			@this.set('max_usia',value[1]); // harga paling tinggi
+		})
+	</script>
+@endpush
 
   {{--  <script>
     $(document).ready(function(){
