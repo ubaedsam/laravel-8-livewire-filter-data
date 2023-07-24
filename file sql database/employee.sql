@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 19 Jul 2023 pada 10.10
+-- Waktu pembuatan: 24 Jul 2023 pada 10.25
 -- Versi server: 10.1.38-MariaDB
 -- Versi PHP: 7.3.2
 
@@ -121,6 +121,85 @@ INSERT INTO `jabatan` (`id`, `jabatan`, `created_at`, `updated_at`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Struktur dari tabel `keluarga`
+--
+
+CREATE TABLE `keluarga` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `kk_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data untuk tabel `keluarga`
+--
+
+INSERT INTO `keluarga` (`id`, `name`, `kk_id`, `created_at`, `updated_at`) VALUES
+(1, 'Prof. Hiram Mann I', 7, '2023-07-23 16:37:43', '2023-07-23 16:37:43'),
+(2, 'Ashton Zemlak IV', 2, '2023-07-23 16:37:44', '2023-07-23 16:37:44'),
+(3, 'Celestine Pouros', 9, '2023-07-23 16:37:44', '2023-07-23 16:37:44'),
+(4, 'Darrion Dach', 5, '2023-07-23 16:37:45', '2023-07-23 16:37:45'),
+(5, 'Elmira Fritsch', 10, '2023-07-23 16:37:45', '2023-07-23 16:37:45'),
+(7, 'Dr. Kirk Stamm V', 9, '2023-07-23 16:37:45', '2023-07-23 16:37:45'),
+(8, 'Murphy Ernser', 4, '2023-07-23 16:37:46', '2023-07-23 16:37:46'),
+(9, 'Raheem Ernser', 2, '2023-07-23 16:37:46', '2023-07-23 16:37:46'),
+(10, 'Reagan Hodkiewicz', 5, '2023-07-23 16:37:46', '2023-07-23 16:37:46'),
+(11, 'Fern Gleason IV', 8, '2023-07-23 16:37:46', '2023-07-23 16:37:46'),
+(12, 'Julius Kunze', 7, '2023-07-23 16:37:46', '2023-07-23 16:37:46'),
+(13, 'Michaela Kuvalis', 1, '2023-07-23 16:37:46', '2023-07-23 16:37:46'),
+(14, 'Mr. Rupert McDermott', 3, '2023-07-23 16:37:46', '2023-07-23 16:37:46'),
+(15, 'Anahi Adams', 9, '2023-07-23 16:37:47', '2023-07-23 16:37:47'),
+(16, 'Dante Kunde', 7, '2023-07-23 16:37:47', '2023-07-23 16:37:47'),
+(18, 'Mariam O\'Reilly', 1, '2023-07-23 16:37:47', '2023-07-23 16:37:47'),
+(19, 'Kacie Gaylord', 10, '2023-07-23 16:37:47', '2023-07-23 16:37:47'),
+(20, 'Corrine West', 8, '2023-07-23 16:37:48', '2023-07-23 16:37:48'),
+(21, 'Miss Jaclyn Herman A', 5, '2023-07-23 16:37:48', '2023-07-24 01:12:13'),
+(22, 'Aubrey Kilback', 1, '2023-07-23 16:37:48', '2023-07-23 16:37:48'),
+(23, 'Austen Becker', 3, '2023-07-23 16:37:48', '2023-07-23 16:37:48'),
+(24, 'Finn Crooks III', 2, '2023-07-23 16:37:48', '2023-07-23 16:37:48'),
+(25, 'Brett Hane', 4, '2023-07-23 16:37:49', '2023-07-23 16:37:49'),
+(27, 'Burley Cummings Jr.', 3, '2023-07-23 16:37:49', '2023-07-23 16:37:49'),
+(28, 'Vivien Hyatt', 8, '2023-07-23 16:37:49', '2023-07-23 16:37:49'),
+(29, 'Crawford Balistreri', 4, '2023-07-23 16:37:49', '2023-07-23 16:37:49'),
+(30, 'Destinee Nicolas', 7, '2023-07-23 16:37:49', '2023-07-23 16:37:49'),
+(32, 'Budi B', 12, '2023-07-23 21:27:19', '2023-07-23 21:27:19'),
+(33, 'Budi A', 12, '2023-07-24 00:56:45', '2023-07-24 00:56:45'),
+(34, 'Budi C', 12, '2023-07-24 00:57:14', '2023-07-24 01:13:44');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `kepala_keluarga`
+--
+
+CREATE TABLE `kepala_keluarga` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data untuk tabel `kepala_keluarga`
+--
+
+INSERT INTO `kepala_keluarga` (`id`, `name`, `created_at`, `updated_at`) VALUES
+(1, 'Dr. Forest Osinski', '2023-07-23 16:35:12', '2023-07-23 16:35:12'),
+(2, 'Erik Kuvalis', '2023-07-23 16:35:13', '2023-07-23 16:35:13'),
+(3, 'Garrick Schamberger', '2023-07-23 16:35:13', '2023-07-23 16:35:13'),
+(4, 'Hiram Herzog', '2023-07-23 16:35:14', '2023-07-23 16:35:14'),
+(5, 'Vicente Little C', '2023-07-23 16:35:14', '2023-07-24 01:12:39'),
+(7, 'Mr. Eleazar Corwin', '2023-07-23 16:35:14', '2023-07-23 16:35:14'),
+(8, 'Mr. Dewayne Collins MD', '2023-07-23 16:35:14', '2023-07-23 16:35:14'),
+(9, 'Adrain Auer', '2023-07-23 16:35:15', '2023-07-23 16:35:15'),
+(10, 'Darrion Brekke', '2023-07-23 16:35:15', '2023-07-23 16:35:15'),
+(12, 'Ubaed Shibghahtallah Ashri Muharam', '2023-07-23 20:19:00', '2023-07-23 21:20:30');
+
+-- --------------------------------------------------------
+
+--
 -- Struktur dari tabel `migrations`
 --
 
@@ -142,7 +221,9 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (5, '2023_01_25_021355_create_team_table', 1),
 (6, '2023_01_25_172338_create_jabatan_table', 1),
 (7, '2023_01_26_162337_create_employee_table', 1),
-(8, '2023_07_05_164548_create_products_table', 2);
+(8, '2023_07_05_164548_create_products_table', 2),
+(9, '2023_07_23_231547_create_kepala_keluarga_table', 3),
+(10, '2023_07_23_231846_create_keluarga_table', 3);
 
 -- --------------------------------------------------------
 
@@ -301,6 +382,20 @@ ALTER TABLE `jabatan`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indeks untuk tabel `keluarga`
+--
+ALTER TABLE `keluarga`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `keluarga_kk_id_foreign` (`kk_id`);
+
+--
+-- Indeks untuk tabel `kepala_keluarga`
+--
+ALTER TABLE `kepala_keluarga`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `kepala_keluarga_name_unique` (`name`);
+
+--
 -- Indeks untuk tabel `migrations`
 --
 ALTER TABLE `migrations`
@@ -362,10 +457,22 @@ ALTER TABLE `jabatan`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
+-- AUTO_INCREMENT untuk tabel `keluarga`
+--
+ALTER TABLE `keluarga`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+
+--
+-- AUTO_INCREMENT untuk tabel `kepala_keluarga`
+--
+ALTER TABLE `kepala_keluarga`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+
+--
 -- AUTO_INCREMENT untuk tabel `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT untuk tabel `personal_access_tokens`
@@ -401,6 +508,12 @@ ALTER TABLE `users`
 ALTER TABLE `employee`
   ADD CONSTRAINT `employee_jabatan_id_foreign` FOREIGN KEY (`jabatan_id`) REFERENCES `jabatan` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `employee_team_id_foreign` FOREIGN KEY (`team_id`) REFERENCES `team` (`id`) ON DELETE CASCADE;
+
+--
+-- Ketidakleluasaan untuk tabel `keluarga`
+--
+ALTER TABLE `keluarga`
+  ADD CONSTRAINT `keluarga_kk_id_foreign` FOREIGN KEY (`kk_id`) REFERENCES `kepala_keluarga` (`id`) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
